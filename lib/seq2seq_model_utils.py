@@ -57,9 +57,10 @@ def softmax(x):
     prob = np.exp(x) / np.sum(np.exp(x), axis=0)
     return prob
 
+# stopwords = ['bị','bởi','cả','các','cái','cần','càng','chỉ','chiếc','cho','chứ','chưa','chuyện','có','có_thể','cứ','của','cùng','cũng','đã','đang','đây','để','đến_nỗi','đều','điều','do','đó','được','dưới','gì','khi','không','là','lại','lên','lúc','mà','mỗi','một_cách','này','nên','nếu','ngay','nhiều','như','nhưng','những','nơi','nữa','phải','qua','ra','rằng','rằng','rất','rất','rồi','sau','sẽ','so','sự','tại','theo','thì','trên','trước','từ','từng','và','vẫn','vào','vậy','vì','việc','với','vừa']
+stopwords = []
 
-
-def cal_bleu(cands, ref, stopwords=['的', '嗎']):
+def cal_bleu(cands, ref, stopwords=stopwords):
     cands = [s['dec_inp'].split() for s in cands]
     cands = [[w for w in sent if w[0] != '_'] for sent in cands]
     refs  = [w for w in ref.split() if w not in stopwords]
