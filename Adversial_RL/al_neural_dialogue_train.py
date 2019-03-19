@@ -220,6 +220,6 @@ def main(_):
     #step_4 training al model
     #al_train()
     #model test
-    #gen_test()
+    gen_test()
 if __name__ == "__main__":
     tf.app.run()
